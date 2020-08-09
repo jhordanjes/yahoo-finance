@@ -8,12 +8,17 @@ export const Container = styled.div`
     height: 50px;
     padding: 0 12px;
     border-radius: 8px;
-    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
     border: 0;
-    border-bottom: 2px solid rgba(1,1,1,0.4);
-    border-left: 2px solid transparent;
-    border-right: 2px solid transparent;
+    border-bottom: 2px solid rgba(1,1,1,0.2);
+    border-left: 2px solid rgba(1,1,1,0.2);
+    border-right: 2px solid rgba(1,1,1,0.2);
     transition: 0.3s;
+
+    &::placeholder {
+      font-weight: normal;
+    }
 
 
     ${props =>

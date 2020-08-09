@@ -26,7 +26,7 @@ function List ({quotes}) {
 
         <tbody>
           {quotes.map(quote => (
-            <tr key={quote.adjClose}>
+            <tr key={quote.date}>
             <td>{quote.open}</td>
             <td>{quote.high}</td>
             <td>{quote.low}</td>

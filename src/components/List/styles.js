@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Table = styled.table`
-  margin: 15px auto;
+  margin: 50px auto;
   width: 1200px;
   border-collapse: separate;
   border-spacing: 0 1em;

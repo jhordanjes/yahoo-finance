@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useRef } from 'react';
 import { Form } from '@unform/web';
-import { isBefore, parseISO } from 'date-fns';
+import { isBefore, parseISO} from 'date-fns';
 import * as Yup from 'yup';
 import yahooFinance from 'yahoo-finance';
 import { toast } from 'react-toastify';
@@ -17,8 +17,6 @@ function Home() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = useCallback(async (data) => {
-    // const dateFormatted = formatISO(parseISO(data.to));
-    // console.log(dateFormatted);
     try {
       setLoading(true);
       formRef.current.setErrors({});
@@ -47,6 +45,8 @@ function Home() {
         to: data.to,
       });
 
+      console.log(quotes);
+
       setQuotesData(quotes);
 
       setLoading(false);
@@ -68,9 +68,20 @@ function Home() {
         <img src={logo} alt="Yahoo Finances" />
         <h3>Cotações de ações gratuitas</h3>
         <Form ref={formRef} onSubmit={handleSubmit}>
-          <Input type="text"  name="symbol" placeholder="Symbol" />
-          <Input type="text" name="from" placeholder="Data start (aaaa-mm-dd)" />
-          <Input type="text" name="to" placeholder="Data end (aaaa-mm-dd)" />
+          <div>
+            <Input type="text" id="symbol" name="symbol" placeholder="Example AAPL" />
+            <label htmlFor="symbol">Symbol</label>
+          </div>
+          <div>
+            <Input type="date" id="from" name="from"/>
+            <label htmlFor="from">Data start</label>
+          </div>
+
+          <div>
+            <Input type="date" id="to" name="to"/>
+            <label htmlFor="to">Data end</label>
+          </div>
+
           <button type="submit">{loading ? 'Carregando...' : 'Procurar'}</button>
         </Form>
       </Container>
